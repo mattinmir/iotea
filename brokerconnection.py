@@ -1,4 +1,6 @@
 import json
+from database import *
+
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, rc):
@@ -34,6 +36,5 @@ def on_message(client, userdata, msg):
 	ir_lux  = payload['ir_lux']
 	temperature  = payload['temperature']
 
-	
-	
-	
+	connection = None
+	db_connect(connection, 'localhost', 
