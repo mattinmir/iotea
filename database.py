@@ -4,7 +4,7 @@ import pymysql
 class database:
 
 	def __init__:
-		self.conn = pymysql.connect(host='129.31.226.212', port=3306, user='root', passwd='', db='TEA', cursorclass=pymysql.cursors.DictCursor)
+		self.conn = pymysql.connect(host='129.31.226.132', port=3306, user='root', passwd='', db='TEA', cursorclass=pymysql.cursors.DictCursor)
 		self.cursor = conn.cursor()
 		
 

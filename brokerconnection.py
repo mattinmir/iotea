@@ -1,5 +1,5 @@
 import json
-from database import *
+#from database import *
 
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -26,7 +26,8 @@ JSON Data Structure and data types:
 	 
 '''
 def on_message(client, userdata, msg):
-	#print(msg.topic+ " " + str(msg.payload) )
+	print(msg.topic+ " " + str(msg.payload) )
+	'''
 	payload = json.loads(str(msg.payload))
 
 	tea_id = payload['tea_id']
@@ -38,3 +39,15 @@ def on_message(client, userdata, msg):
 
 	connection = None
 	db_connect(connection, 'localhost', 
+
+	cnx = pymysql.connect(host='129.31.228.132', port=3306, user='root', passwd='', db='TEA')
+
+	insert_query = ("INSERT INTO `TEA`. `teaTable` (`tea_id`, `name_of_tea`, `device_id`, `broad_lux`, `ir_lux`, `temperature`) VALUES (tea_id, , name_of_tea , '1', '1', '1');")
+
+	cursor = cnx.cursor()
+	cursor.execute(insert_query)
+
+	cnx.commit()
+	cursor.close()
+	cnx.close()
+	'''

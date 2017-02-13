@@ -55,7 +55,7 @@ sta_if.active(True)
 sta_if.connect('EEERover', 'exhibition')
 
 
-client = MQTTClient(machine.unique_id(), '129.31.230.134')
+client = MQTTClient(machine.unique_id(), '192.168.0.10')
 client.connect()
 x="pepepepepepepepepepepepeppepepepepepepepepepepepepepe"
 client.publish('/topic/test', str.encode(x) )
