@@ -3,19 +3,21 @@ import pymysql
 
 class database:
 
-	def __init__:
-		self.conn = pymysql.connect(host='129.31.226.132', port=3306, user='root', passwd='', db='TEA', cursorclass=pymysql.cursors.DictCursor)
+	def __init__(self, _host, _port, _user, _passwd, _db):
+		self.conn = pymysql.connect(host=_host, port=_port, user=_user, passwd=_passwd, db=_db)
 		self.cursor = conn.cursor()
 		
 
-	def insert(self, tea_id, name_of_tea, devide_id, broad_lux, ir_lux, temperature)
+	def insert(self, time, tea_id, name_of_tea, type_of_tea, device_id, broad_lux, ir_lux, temperature):
+		values = "({}, {}, {}, {}, {}, {}, {}, {});".format(time, tea_id, name_of_tea, type_of_tea, device_id, broad_lux, ir_lux, temperature)
+		cursor.execute("INSERT INTO `TEA`. `teaTable` (`time`, `tea_id`, `name_of_tea`, `type_of_tea`, `device_id`, `broad_lux`, `ir_lux`, `temperature`) VALUES" + values)
 
 	def next_tea_id(self):
-		return cursor.execute('SELECT MAX(tea_id) FROM teaTable')
+		cursor.execute("SELECT MAX(tea_id) FROM teaTable")
+		return cursor.fetchone()[0] + 1
 	
 	def query(q):
-		
 		cursor.execute(q)
-		return cur
+		return cursor.fetchall()
 
 
