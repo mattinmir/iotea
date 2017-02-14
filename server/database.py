@@ -15,8 +15,8 @@ class database:
 
 	def next_tea_id(self):
 		self.cursor.execute("SELECT MAX(tea_id) FROM teaTable")
-		return self.cursor.fetchone()[0] + 1
-	
+		return self.cursor.fetchone()[0] + 1	
+
 	def query(q):
 		self.cursor.execute(q)
 		return self.cursor.fetchall()
