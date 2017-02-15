@@ -12,7 +12,7 @@ sensor_temp = si7021.Si7021(64)
 
 while (1):
 	print(sensor_lux._read()[0] , sensor_lux._read()[1])
-  print(sensor_temp.readTemp())
+  	print(sensor_temp.readTemp())
   
 # working for reading values from temp and lux sensors 
 
