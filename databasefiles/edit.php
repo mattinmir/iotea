@@ -20,7 +20,7 @@ if( isset($_POST['new_name_of_tea']) )
     $sql     = "UPDATE teatable SET name_of_tea='$newName' WHERE tea_id='$id'";
     $res 	 = mysqli_query($con, $sql) 
                                 or die("Could not update".mysql_error());
-    echo "<meta http-equiv='refresh' content='0;url=printea.php'>";
+    echo "<meta http-equiv='refresh' content='0;url=brewtea.php'>";
 }
 
 ?>
