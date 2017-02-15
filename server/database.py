@@ -8,10 +8,10 @@ class database:
 		self.cursor = self.conn.cursor()
 		
 
-	def insert(self,  tea_id, name_of_tea, type_of_tea, device_id, broad_lux, ir_lux, temperature):
-		values = "({}, {}, {}, {}, {}, {}, {});".format(tea_id, name_of_tea, type_of_tea, device_id, broad_lux, ir_lux, temperature)
+	def insert(self,  tea_id, device_id, broad_lux, ir_lux, temperature):
+		values = "({}, {}, {}, {}, {});".format(tea_id,  device_id, broad_lux, ir_lux, temperature)
 		print(values)
-		self.cursor.execute("INSERT INTO `TEA`. `teaTable` (`tea_id`,  `name_of_tea`, `type_of_tea`, `device_id`, `broad_lux`, `ir_lux`, `temperature`) VALUES " + values)
+		self.cursor.execute("INSERT INTO `TEA`. `teaTable` (`tea_id`,  `device_id`, `broad_lux`, `ir_lux`, `temperature`) VALUES " + values)
 
 	def next_tea_id(self):
 		self.cursor.execute("SELECT MAX(tea_id) FROM teaTable")

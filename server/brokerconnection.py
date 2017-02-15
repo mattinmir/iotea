@@ -32,7 +32,6 @@ def on_message(client, userdata, msg):
 	
 	payload = json.loads(str(msg.payload))
 
-	time = payload['time'] 
 	device_id  = payload['device_id']
 	broad_lux  = payload['broad_lux']
 	ir_lux  = payload['ir_lux']
@@ -40,7 +39,7 @@ def on_message(client, userdata, msg):
 
 	tea_id = db.next_tea_id()
 
-	db.insert(time, tea_id, '', '', device_id, broad_lux, ir_lux, temperature)
+	db.insert(tea_id, device_id, broad_lux, ir_lux, temperature)
 
 	''''
 	cnx = pymysql.connect(host='129.31.228.132', port=3306, user='root', passwd='', db='TEA')
