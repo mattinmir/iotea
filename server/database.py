@@ -10,8 +10,8 @@ class database:
 
 	def insert(self,  tea_id, device_id, broad_lux, ir_lux, temperature):
 		values = "({}, {}, {}, {}, {});".format(tea_id,  device_id, broad_lux, ir_lux, temperature)
-		print(values)
 		self.cursor.execute("INSERT INTO `TEA`. `teaTable` (`tea_id`,  `device_id`, `broad_lux`, `ir_lux`, `temperature`) VALUES " + values)
+		print("Inserting into db: " + values)
 
 	def next_tea_id(self):
 		self.cursor.execute("SELECT MAX(tea_id) FROM teaTable")
