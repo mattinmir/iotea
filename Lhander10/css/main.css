@@ -837,10 +837,10 @@ header .logo a {
 	font: 0/0 a;
 	text-shadow: none;
 	color: transparent;
-	width: 42px;
-	height: 42px;
-	background: url("../images/logo.png") no-repeat center;
-	background-size: 42px 42px;
+	width: 87px;
+	height: 32px;
+	background: url("../images/logofull.png") no-repeat center;
+	background-size: 87px 32px;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -853,9 +853,9 @@ header .logo a {
 	top: 0;
 }
 .sticky .logo a {
-	width: 38px;
-	height: 38px;
-	background-size: 38px 38px;
+	width: 87px;
+	height: 32px;
+	background-size: 87px 32px;
 }
 
 /**
@@ -2202,10 +2202,10 @@ footer ul li {
 	color: #FFFFFF;
 }
 .footer-main .footer-logo {
-	width: 162px;
-	height: 39px;
-	background: url("../images/footer-logo.png") no-repeat center;
-	background-size: 162px 39px;
+	width: 174px;
+	height: 64px;
+	background: url("../images/logofull.png") no-repeat center;
+	background-size: 174px 64px;
 	margin: -.6rem 0 2.1rem -.3rem;
 	display: block;
 }
