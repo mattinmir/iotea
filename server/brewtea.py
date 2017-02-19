@@ -1,3 +1,12 @@
+'''
+This file is the remnant of what was to be a feature of our product, 
+where tea recipes would be downloaded to the device, but could not
+have both subscription to the broker and publishing to the broker to
+run concurrently. So, this file was abandoned, but the logic is still 
+sound - it would just require additional hardware.
+'''
+
+
 import sys
 import paho.mqtt.client as mqtt
 import json
