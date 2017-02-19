@@ -1,3 +1,7 @@
+'''
+Used to control brewing of tea to specifications
+'''
+
 from umqtt.simple import MQTTClient 
 import tsl2561
 import si7021
