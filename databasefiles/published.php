@@ -3,58 +3,61 @@
 require "init.php";
 
 /*
-if(isset ($_GET['download']))
-{
-        $id = $_GET['download'];
-        $sql = "SELECT * FROM teanamed WHERE tea_id='$id'";
-        $result = mysqli_query($con, $sql);
-        if (!$result) {
-            die('Invalid query: ' . mysqli_error($con));
-        }
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC); 
-}
-*/
-
-//exec(sctipy,)
+ * Print tea specs from database by fetching specified tea_id 
+ * in url through GET method
+ */
 
 if (isset($_GET['download']))
 {
     $id = $_GET['download'];
+
+   //Debugging query to insert into new table of published teas
+   //teapublish table used for automatic publishing of .tea file to MQTT broker <---TODO
+
     /*$sql = "INSERT INTO teapublish (`tea_id`,`name_of_tea`, `type_of_tea`, `device_id`,`broad_lux`,`ir_lux`,`temperature`) 
             SELECT `tea_id`, `name_of_tea`, `type_of_tea`, `device_id`, `broad_lux`, `ir_lux`, `temperature` FROM teanamed WHERE `tea_id` = '$id' AND 
             NOT EXISTS (SELECT * FROM teapublish WHERE `tea_id` = teanamed.tea_id);";*/
-    $sql = "SELECT broad_lux, ir_lux, temperature FROM teanamed WHERE tea_id = '$id';";
+
+
+
+    $sql = "SELECT name_of_tea, broad_lux, temperature FROM teanamed WHERE tea_id = '$id';";
     
 
 
     $res = mysqli_query($con, $sql) 
                                 or die("Could not update".mysql_error());
-   // echo "<meta http-equiv='refresh' content='0;url=printea.php'>";
+                                
 
-   // $row = mysqli_fetch_row($res);
+    //Simple extraction of entry
+    //Update specs to screen
+
     while($row = mysqli_fetch_assoc($res))
     {
-        $cmd = "D:\\python.exe D:\\wamp64\\www\\iotea\\brewtea.py " . $row["broad_lux"] . ' ' . $row["ir_lux"]. ' ' . $row["temperature"];
-        echo $cmd;
-        $output = shell_exec($cmd);
-        echo $output;
-        echo "woolomooolo";
-        exec($cmd);
+
+
+        echo "<br/>";
+        echo "<h1>Your .tea file</h1>";
+        echo "<table border=1px solid black; border-collapse:collapse; padding: 105px;>
+                    <tr>
+                        <th>Name</th>
+                        <th>Opacity</th>
+                        <th>Temperature</th>
+                    </tr>";
+        
+                echo "<tr>";
+        echo "<td>" . $row["name_of_tea"] . "</td>";
+        echo "<td>" . $row["broad_lux"] . "</td>";
+        echo "<td>" . $row["temperature"] . "</td>";
+        echo "</tr>";
+        echo "</table>"; 
+
     }
 
 
 }
-    //echo "DOWNLOADED!";
-   // $row = mysqli_fetch_array($result, MYSQLI_ASSOC); 
-
 
 
 mysqli_close($con);
 
 ?>
 
-<!--
-<form action="published.php" method="POST">
- <button type = "submit">DOWNLOAD!</button>
-</form>
--->

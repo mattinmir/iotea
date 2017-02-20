@@ -1,9 +1,12 @@
+'''
+-Placeholder file for automatic publishing of .tea file (json)
+to MQTT broker
+-Data will be extracted from teapublish table in the database 
+'''
+
 import sys
 import paho.mqtt.client as mqtt
 import json
-
-
-print(10+10)
 
 
 broad_lux = sys.argv[1]
@@ -13,6 +16,7 @@ temperature = sys.argv[3]
 
 def on_connect(client, userdata, rc):
     print("Connected with result code "+str(rc))
+    
 
 client = mqtt.Client()
 client.on_connect = on_connect

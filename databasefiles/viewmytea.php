@@ -2,6 +2,12 @@
 
 require "init.php";
 
+/*
+ * For quick viewing of entries in the teatable table
+ * and for people who cannot access phpmyadmin i.e. localhost
+ */
+
+
 $sql = "SELECT tea_id, name_of_tea, device_id FROM teatable";
 $result = mysqli_query($con, $sql);
 

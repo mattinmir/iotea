@@ -2,6 +2,13 @@
 
 require "init.php";
 
+/*
+ * Get tea_id from url and post the new name to the database 
+ * by means of an UPDATE query
+ */
+
+
+//Pull parameter from URL (GET)
 if(isset ($_GET['edit']))
 {
         $id = $_GET['edit'];
@@ -13,6 +20,7 @@ if(isset ($_GET['edit']))
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC); 
 }
 
+//Update new name in table
 if( isset($_POST['new_name_of_tea']) )
 {
     $newName = $_POST['new_name_of_tea'];
@@ -22,6 +30,7 @@ if( isset($_POST['new_name_of_tea']) )
                                 or die("Could not update".mysql_error());
     echo "<meta http-equiv='refresh' content='0;url=brewtea.php'>";
 }
+
 
 ?>
 

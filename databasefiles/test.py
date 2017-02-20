@@ -1,11 +1,15 @@
+'''
+  TO TEST SERVER PUBLISHING .tea FILE TO MQTT BROKER
+  TODO for automatic publish of .tea file from server database
+'''
+
 import sys
 import paho.mqtt.client as mqtt
 import json
 from time import sleep
 
-print(10+10)
 
-
+#Pass dummy specifications through command line
 broad_lux = sys.argv[1]
 ir_lux = sys.argv[2]
 temperature = sys.argv[3]
@@ -33,7 +37,6 @@ client.on_subscribe = on_subscribe
 
 client.connect('192.168.0.10', 1883, 60)
 
-while True:
-    data = json.dumps([{"broad_lux":broad_lux, "ir_lux":ir_lux, "temperature":temperature}])
-    client.publish('esys/InternetOfThugs/brew', data)
-    sleep(5)
+#Publish json to broker
+data = json.dumps([{"broad_lux":broad_lux, "ir_lux":ir_lux, "temperature":temperature}])
+client.publish('esys/InternetOfThugs/brew', data)
