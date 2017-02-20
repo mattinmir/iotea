@@ -5,6 +5,7 @@ require "init.php";
 /*
  * For quick viewing of entries in the teatable table
  * and for people who cannot access phpmyadmin i.e. localhost
+ *
  */
 
 
