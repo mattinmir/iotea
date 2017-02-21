@@ -1,5 +1,9 @@
 '''
 Used to control brewing of tea to specifications
+
+Operator enters target luminosity and temperature
+and device takes measurements until those values 
+are met
 '''
 
 from umqtt.simple import MQTTClient 
