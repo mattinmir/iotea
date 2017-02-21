@@ -12,7 +12,7 @@ if (isset($_GET['download']))
     $id = $_GET['download'];
 
    //Debugging query to insert into new table of published teas
-   //teapublish table used for automatic publishing of .tea file to MQTT broker <---TODO
+   //teapublish table used for automatic publishing of .tea file to MQTT broker <---TODO additional feature
 
     /*$sql = "INSERT INTO teapublish (`tea_id`,`name_of_tea`, `type_of_tea`, `device_id`,`broad_lux`,`ir_lux`,`temperature`) 
             SELECT `tea_id`, `name_of_tea`, `type_of_tea`, `device_id`, `broad_lux`, `ir_lux`, `temperature` FROM teanamed WHERE `tea_id` = '$id' AND 
